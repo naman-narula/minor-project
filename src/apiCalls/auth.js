@@ -1,4 +1,4 @@
-const API = 'http://localhost:5000/api'
+const API = 'http://127.0.0.1:8000'
 // const API = 'https://carhub-backend.herokuapp.com/api'
 
 // user route calls
@@ -21,11 +21,11 @@ export const login = user => {
         method: 'POST',
         headers: {
             Accept: 'application/json',
-            'Content-Type': 'application/json'
         },
-        body: JSON.stringify(user)
+        body:user
     })
-    .then(response => response.json())
+    .then(response => {
+        return response.json()})
     .catch(err => console.log(err))
 }
 
@@ -56,12 +56,6 @@ export const getUser = userId => {
     .catch(err => console.log(err))
 }
 
-export const authenticate = (data, next) => {
-    if (typeof window !== "undefined") {
-        localStorage.setItem('user', JSON.stringify(data))
-        next()
-    }
-}
 
 export const signout = next => {
     if (typeof window !== "undefined") {
@@ -90,7 +84,7 @@ export const isAuthenticated = () => {
 
 // city route calls
 export const getCities = () => {
-    return fetch(`${API}/cities`, {
+    return fetch(`${API}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'

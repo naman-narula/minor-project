@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { login, authenticate } from '../../apiCalls/auth'
+import { login } from '../../apiCalls/auth'
 import Navbar from '../nav/Navbar'
 import './auth.scss'
 import SignIn from '../../assets/undraw_sign_in.svg'
@@ -27,9 +27,11 @@ class Login extends Component {
     }
     
     handleSubmit(event) {
-        const { email, password } = this.state
         this.setState({ error: '', active: false, redirect: false })
-        login({ email, password })
+        const formData = new FormData()
+        formData.append('email',this.state.email);
+        formData.append('password',this.state.password)
+        login(formData)
         .then(loggedUser => {
             if (loggedUser.error) {
                 this.setState({error: loggedUser.error, active: true})
@@ -37,11 +39,6 @@ class Login extends Component {
             else {
                 this.setState({ redirect: true })
                 // localStorage.setItem('user', loggedUser)
-                authenticate(loggedUser, () => {
-                    setTimeout(() => {
-                        this.props.history.push('/')
-                    }, 3000)
-                })
             }
             console.log(loggedUser)
         })
@@ -71,7 +68,6 @@ class Login extends Component {
                         className='form-control'
                     >
                         <label className='auth-labels' htmlFor="usermail">Enter your Email</label>
-                        {console.log(this.state.active)}
                         <input
                             className='auth-inputs'
                             id='usermail'

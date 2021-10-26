@@ -43,8 +43,8 @@ class Signup extends Component {
         }
         else {
             const formData = new FormData()
+            formData.append('username', email)
             formData.append('name', name)
-            formData.append('email', email)
             formData.append('password', password)
     
             signup(formData)
