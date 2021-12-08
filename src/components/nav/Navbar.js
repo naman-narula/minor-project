@@ -4,16 +4,13 @@ import { Link } from 'react-router-dom'
 import { DriveEtaOutlined } from '@material-ui/icons'
 import VNav from './vNav'
 import { isAuthenticated, signout } from '../../apiCalls/auth'
+import { useGlobalContext } from '../../context'
 
 const Navbar = (props) => {
     const [name, setName] = useState('')
     
-    useEffect(() => {
-        if (localStorage.getItem('user')) {
-        setName(JSON.parse(localStorage.getItem('user')).user.name)
-        }
-    }, [])
-
+    const {user} = useGlobalContext();
+    console.log(user)
     return (
         <div>
             <div className='nav-container'>
@@ -27,18 +24,18 @@ const Navbar = (props) => {
                     <Link className='nav-link' to='/getride'>
                         <li className='link'>Ride</li>
                     </Link>
-                    { !isAuthenticated() && 
+                    { !user.loggedIn && 
                     <Link className='nav-link' to='/login'>
                         <li className='link'>Login</li>
                     </Link>
                     }
-                    { !isAuthenticated() && 
+                    { !user.loggedIn && 
                     <Link className='nav-link' to='/signup'>
                         <li className='link'id='different-link'>Signup</li>
                     </Link>
                     
                     }
-                    { isAuthenticated() &&
+                    {user.loggedIn &&
                     <Link className="nav-link"
                     onClick={() => {
                         signout(() => {
@@ -51,7 +48,7 @@ const Navbar = (props) => {
                     </Link>
                     
                     }
-                    { isAuthenticated() &&
+                    { user.loggedIn &&
                     <Link className='nav-link' to='/dashboard'>
                         <li className='link'id='different-link'>{name}</li>
                     </Link>

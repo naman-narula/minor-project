@@ -32,13 +32,6 @@ function Nav(props) {
     setState({ ...state, [anchor]: open });
   };
 
-  useEffect(() => {
-    if (localStorage.getItem('user')) {
-      // console.log(localStorage.getItem('user'))
-      setName(JSON.parse(localStorage.getItem('user')).user.name)
-    }
-  }, [])
-
   return (
     <div className='vnav-container'>
       {["top"].map(anchor => (

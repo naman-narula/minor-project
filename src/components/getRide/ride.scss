@@ -59,11 +59,11 @@ $lightGradient2: linear-gradient(to right, #ffc3a0, #FFAFBD); /* W3C, IE 10+/ Ed
 
 .ride-page-cities-container {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
-    margin-bottom: 5rem;
+    justify-content: space-around;
+    height: 50vh;
     // padding-top: 10vh;
     // .ride-page-cities {
     //     display: grid;
@@ -89,3 +89,33 @@ $lightGradient2: linear-gradient(to right, #ffc3a0, #FFAFBD); /* W3C, IE 10+/ Ed
         font-weight: 400;
     }
 }
+
+#button {
+        cursor: pointer;
+        box-sizing: border-box;
+        grid-column: 1 / 3;
+        width: 15%;
+        margin-top: 10px;
+        margin-left: calc(50vw - 10% );
+        padding: 20px 0;
+        border: none;
+        background-color: $purpleOne;
+        color: $w;
+        border: $purpleOne solid 3px;
+        font-size: 1.1em;
+        border-radius: 40px;
+        transition: 300ms;
+        box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12),
+            0 8px 10px -5px rgba(0, 0, 0, 0.2);
+
+        &:hover {
+            transition: 300ms;
+            background-color: $w;
+            color: $purpleOne;
+            border: $purpleOne solid 3px;
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }

@@ -5,6 +5,8 @@ import Signup from './components/authentication/Signup'
 import Login from './components/authentication/Login'
 import Home from './components/Home/Home'
 import RideCar from './components/getRide/Ride'
+import HtmlViewer from './components/HtmlViewer'
+import UserDashBoard from './components/userDashboard.js'
 import PrivateRoute from './apiCalls/PrivateRoute'
 
 function router() {
@@ -25,11 +27,15 @@ function router() {
                             <Login {...props} />
                         )}
                     />
-                    <Route path='/rentcar'
+                    <Route exact path = '/payment' component={HtmlViewer}/>
+                    <PrivateRoute path='/rentcar'
                         exact component={RentCar}
                     />
-                    <Route path='/getride'
+                    <PrivateRoute path='/getride'
                         exact component={RideCar}
+                    />
+                    <PrivateRoute path='/dashboard'
+                    exact component = {UserDashBoard}
                     />
                 </Switch>
             </BrowserRouter>
