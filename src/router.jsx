@@ -8,6 +8,7 @@ import RideCar from './components/getRide/Ride'
 import HtmlViewer from './components/HtmlViewer'
 import UserDashBoard from './components/userDashboard.js'
 import PrivateRoute from './apiCalls/PrivateRoute'
+import CarRentForm from './components/RentCarForm'
 
 function router() {
     return (
@@ -37,6 +38,8 @@ function router() {
                     <PrivateRoute path='/dashboard'
                     exact component = {UserDashBoard}
                     />
+                    <PrivateRoute exact path='/car-rent-form' 
+                    component={CarRentForm}/>
                 </Switch>
             </BrowserRouter>
         </div>

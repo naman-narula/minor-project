@@ -25,7 +25,6 @@ export default function UserDashBoard(props) {
     }
     function handleUpload(e) {
         e.preventDefault();
-        console.log('handleUpload');
         postUserDocs(userDl).then((response) => {
             console.log(response);
         });

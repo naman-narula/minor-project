@@ -134,13 +134,10 @@ $lightGradient2: linear-gradient(
             background-color: $w;
             border-width: 2px;
         }
-        .input-container {
+        .car-inputs {
             width: 100%;
-            .car-inputs {
-                width: 100%;
-                height: 85%;
-                margin-top: 5px;
-            }
+            height: 85%;
+            margin-top: 5px;
         }
         #car-brand {
             grid-column: 1 / 3;
@@ -166,7 +163,7 @@ $lightGradient2: linear-gradient(
         grid-column: 1 / 3;
         width: 15%;
         margin-top: 10px;
-        margin-left: calc(50vw - 10% );
+        margin-left: calc(50vw - 10%);
         padding: 20px 0;
         border: none;
         background-color: $purpleOne;
@@ -187,6 +184,10 @@ $lightGradient2: linear-gradient(
 
         &:focus {
             outline: none;
+        }
+        &:disabled{
+            background-color: gray;
+            border: gray;
         }
     }
 }

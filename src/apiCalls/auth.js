@@ -255,5 +255,11 @@ export const Payment = (params) => {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(params)
-    }).then((res)=>res.text());
+    }).then((res) => res.text());
+};
+
+export const RentCar = (formData) => {
+    return fetch(`${API}/rentcar`, { method: 'POST', credentials: 'include', body: formData }).then((res) =>
+        res.json()
+    );
 };

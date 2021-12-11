@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../nav/Navbar';
 import Footer from '../footer/Footer';
-import { checkPrice, requestApproval, getCitiesAndCategory } from '../../apiCalls/auth';
+import { checkPrice, requestApproval} from '../../apiCalls/auth';
 import './lend.scss';
 import '../Home/home.scss';
 import { VpnKeyTwoTone, ThumbUp, FavoriteTwoTone, CreditCardTwoTone } from '@material-ui/icons';
@@ -42,9 +42,6 @@ function RentCar(props) {
         odometer: '',
         drive: 'rwd',
         demandPrice: '',
-        modelName: '',
-        category: '',
-        city: ''
     });
     const [shouldShowPriceApproval, setShouldShowPriceApproval] = useState(false);
     const [approval, setApproval] = useState({
@@ -55,13 +52,13 @@ function RentCar(props) {
     const [carId, setCarId] = useState(-1);
     const [alert, setAlert] = useState({ message: '', shouldShowAlert: false });
 
-    const [apiData, setApiData] = useState({ cities: [], category: [], userData: {} });
+    const [redirect, setRedirect] = useState(false)
 
     useEffect(() => {
-        getCitiesAndCategory().then((res) =>
-            setApiData({ cities: res.city, category: res.category, userData: res.userdata })
-        );
-    }, []);
+        if(approval.liked){
+            setRedirect(true)
+        }
+    }, [approval]);
 
     function handleThumbsClick(event, keyName) {
         setApproval({ [keyName]: !approval[keyName] });
@@ -177,7 +174,7 @@ function RentCar(props) {
                         onChange={handleChange}
                         value={car.brand}
                     >
-                        <option value=""> Select Car Manufacturer</option>
+                        <option value="" disabled> Select Car Manufacturer</option>
                         {BrandDropDown.map((brand) => (
                             <option
                                 value={brand}
@@ -185,13 +182,6 @@ function RentCar(props) {
                             />
                         ))}
                     </select>
-                    <input
-                        className="car-inputs"
-                        name="modelName"
-                        onChange={handleChange}
-                        value={car.modelName}
-                        placeholder="Model Name"
-                    />
                     <select
                         variant="outlined"
                         labelId="category-select"
@@ -206,27 +196,6 @@ function RentCar(props) {
                                 value={fuel}
                                 label={fuel[0].toUpperCase() + fuel.substr(1).toLowerCase()}
                             />
-                        ))}
-                    </select>
-                    <select
-                        name="category"
-                        className="car-inputs"
-                        onChange={handleChange}
-                        value={car.category}
-                    >
-                        <option value="" disabled>
-                            Select Car Category
-                        </option>
-                        {apiData.category.map((category) => (
-                            <option value={category.id}>{category.name}</option>
-                        ))}
-                    </select>
-                    <select name="city" className="car-inputs" onChange={handleChange} value={car.city}>
-                        <option value="" disabled>
-                            Select Car City
-                        </option>
-                        {apiData.cities.map((city) => (
-                            <option value={city.id}>{city.name}</option>
                         ))}
                     </select>
                     <input
@@ -289,6 +258,7 @@ function RentCar(props) {
                     loadingIndicator={
                         <CircularProgress color="primary" size={40} style={{ color: '#fff' }} />
                     }
+                    disabled={priceLoading ||alert.shouldShowAlert}
                 >
                     Check Price
                 </LoadingButton>
@@ -323,6 +293,7 @@ function RentCar(props) {
                 <div>
                     <Footer {...props} />
                 </div>
+                {redirect && <Redirect to={{pathname:"/car-rent-form",state:{brand:car.brand,carId,year:car.year}}}/>}
             </div>
         </div>
     );

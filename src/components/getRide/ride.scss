@@ -1,13 +1,21 @@
-$darkBlue: rgb(40,44,52);
-$blue: rgb(97,218,251);
+$darkBlue: rgb(40, 44, 52);
+$blue: rgb(97, 218, 251);
 $w: rgb(255, 255, 255);
 $perfectGrey: rgb(243, 243, 241);
-$purpleOne: #C33764;  /* fallback for old browsers */
-$purpleGradient: -webkit-linear-gradient(to right, #1D2671, #C33764);  /* Chrome 10-25, Safari 5.1-6 */
-$purpleGradient2: linear-gradient(to right, #1D2671, #C33764); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-$lightOrange: #FFAFBD;  /* fallback for old browsers */
-$lightGradient: -webkit-linear-gradient(to right, #ffc3a0, #FFAFBD);  /* Chrome 10-25, Safari 5.1-6 */
-$lightGradient2: linear-gradient(to right, #ffc3a0, #FFAFBD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+$purpleOne: #c33764; /* fallback for old browsers */
+$purpleGradient: -webkit-linear-gradient(to right, #1d2671, #c33764); /* Chrome 10-25, Safari 5.1-6 */
+$purpleGradient2: linear-gradient(
+    to right,
+    #1d2671,
+    #c33764
+); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+$lightOrange: #ffafbd; /* fallback for old browsers */
+$lightGradient: -webkit-linear-gradient(to right, #ffc3a0, #ffafbd); /* Chrome 10-25, Safari 5.1-6 */
+$lightGradient2: linear-gradient(
+    to right,
+    #ffc3a0,
+    #ffafbd
+); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 .loader {
     position: absolute;
@@ -91,31 +99,35 @@ $lightGradient2: linear-gradient(to right, #ffc3a0, #FFAFBD); /* W3C, IE 10+/ Ed
 }
 
 #button {
-        cursor: pointer;
-        box-sizing: border-box;
-        grid-column: 1 / 3;
-        width: 15%;
-        margin-top: 10px;
-        margin-left: calc(50vw - 10% );
-        padding: 20px 0;
-        border: none;
-        background-color: $purpleOne;
-        color: $w;
-        border: $purpleOne solid 3px;
-        font-size: 1.1em;
-        border-radius: 40px;
+    cursor: pointer;
+    box-sizing: border-box;
+    grid-column: 1 / 3;
+    width: 15%;
+    margin-top: 10px;
+    margin-left: calc(50vw - 10%);
+    padding: 20px 0;
+    border: none;
+    background-color: $purpleOne;
+    color: $w;
+    border: $purpleOne solid 3px;
+    font-size: 1.1em;
+    border-radius: 40px;
+    transition: 300ms;
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12),
+        0 8px 10px -5px rgba(0, 0, 0, 0.2);
+
+    &:hover {
         transition: 300ms;
-        box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12),
-            0 8px 10px -5px rgba(0, 0, 0, 0.2);
-
-        &:hover {
-            transition: 300ms;
-            background-color: $w;
-            color: $purpleOne;
-            border: $purpleOne solid 3px;
-        }
-
-        &:focus {
-            outline: none;
-        }
+        background-color: $w;
+        color: $purpleOne;
+        border: $purpleOne solid 3px;
     }
+
+    &:focus {
+        outline: none;
+    }
+    &:disabled {
+        background-color: gray;
+        border: gray;
+    }
+}

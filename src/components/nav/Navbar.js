@@ -10,7 +10,6 @@ const Navbar = (props) => {
     const [name, setName] = useState('')
     
     const {user} = useGlobalContext();
-    console.log(user)
     return (
         <div>
             <div className='nav-container'>

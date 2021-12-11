@@ -17,7 +17,6 @@ function LoginProvider ({children}) {
 }
 
 export const useGlobalContext = () => {
-    console.log('###',useContext(LoginContext))
     return useContext(LoginContext)
 }
 

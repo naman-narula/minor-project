@@ -1,0 +1,22 @@
+.rentCarContainer{
+    padding: 10rem;
+}
+
+.carForm {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-rows:1fr;
+    place-items: stretch;
+    justify-content: space-evenly;
+    gap: 1rem 1rem;
+    
+    div input,select{
+        width: 70%;
+        height: 60%;
+    }
+}
+
+.widthControl {
+    width: 150px;
+    white-space: pre-wrap
+}
