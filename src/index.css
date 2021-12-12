@@ -94,6 +94,7 @@ code {
 
 .input-css{
   border-radius: 10px/10px;
+  height: 30px;
 }
 
 input[type="file"] {

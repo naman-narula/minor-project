@@ -67,17 +67,16 @@ export const authenticate = (data, next) => {
     }
 };
 
-export const signout = (next) => {
-    if (typeof window !== 'undefined') {
-        localStorage.removeItem('user');
-        next();
-
-        return fetch(`${API}/signout`, {
-            method: 'GET'
+export const signout = () => {
+    return fetch(`${API}/signout`, {
+        method: 'GET',
+        credentials: 'include'
+    })
+        .then((response) => {
+            console.log(response, 'Signout success');
+            localStorage.clear();
         })
-            .then((response) => console.log(response, 'Signout success'))
-            .catch((err) => console.log(err + 'signout eror'));
-    }
+        .catch((err) => console.log(err + 'signout eror'));
 };
 
 export const isAuthenticated = () => {
@@ -262,4 +261,34 @@ export const RentCar = (formData) => {
     return fetch(`${API}/rentcar`, { method: 'POST', credentials: 'include', body: formData }).then((res) =>
         res.json()
     );
+};
+
+export const getBankDetail = (userId) => {
+    return fetch(`${API}/user/${userId}/bank-detail`, { credentials: 'include' }).then((res) => res.json());
+};
+
+export const postBankDetail = (userId, requestBody) => {
+    return fetch(`${API}/user/${userId}/bank-detail`, {
+        method: 'POST',
+        credentials: 'include',
+        body: requestBody
+    }).then((res) => res.json());
+};
+
+export const getUserRides = (userId) => {
+    return fetch(`${API}/user/${userId}/rider-order-detail`, {
+        credentials: 'include'
+    }).then((res) => res.json());
+};
+
+export const endRide = (userId, requestBody) => {
+    return fetch(`${API}/user/${userId}/rider-order-detail`, {
+        method: 'POST',
+        credentials: 'include',
+        body: requestBody
+    }).then((res) => res.json());
+};
+
+export const getRentedCars = (userId) => {
+    return fetch(`${API}/user/${userId}/car-data`, { credentials: 'include' }).then((res) => res.json());
 };

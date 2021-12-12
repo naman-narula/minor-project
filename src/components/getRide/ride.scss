@@ -102,9 +102,8 @@ $lightGradient2: linear-gradient(
     cursor: pointer;
     box-sizing: border-box;
     grid-column: 1 / 3;
-    width: 15%;
+    width: 100%;
     margin-top: 10px;
-    margin-left: calc(50vw - 10%);
     padding: 20px 0;
     border: none;
     background-color: $purpleOne;
@@ -130,4 +129,9 @@ $lightGradient2: linear-gradient(
         background-color: gray;
         border: gray;
     }
+}
+
+.width-control-ride{
+    width: 20vw;
+    margin: auto;
 }

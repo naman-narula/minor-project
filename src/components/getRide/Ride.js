@@ -33,7 +33,7 @@ function Ride(props) {
         toDate: moment().add(3, 'day').toISOString(),
         city: ''
     });
-    const [carLoading,setCarLoading] = useState(false)
+    const [carLoading, setCarLoading] = useState(false);
 
     useEffect(() => {
         setLoading(true);
@@ -56,11 +56,13 @@ function Ride(props) {
         }
     }, []);
 
-    function handleSubmit (event){
-        setCarLoading(true)
-        rideCar(bookingDetails).then((res)=>{setFilteredCars(res.data);setCarLoading(false)})
+    function handleSubmit(event) {
+        setCarLoading(true);
+        rideCar(bookingDetails).then((res) => {
+            setFilteredCars(res.data);
+            setCarLoading(false);
+        });
     }
-
 
     if (redirectDashBoard) {
         return <Redirect to="/dashboard" />;
@@ -118,7 +120,10 @@ function Ride(props) {
                                     label="From Date"
                                     value={bookingDetails.fromDate}
                                     onChange={(newValue) => {
-                                        setBookingDetails({ ...bookingDetails, fromDate: moment(newValue).toISOString() });
+                                        setBookingDetails({
+                                            ...bookingDetails,
+                                            fromDate: moment(newValue).toISOString()
+                                        });
                                     }}
                                     renderInput={(params) => <TextField {...params} />}
                                 />
@@ -130,22 +135,27 @@ function Ride(props) {
                                     inputFormat="DD/MM/YYYY"
                                     value={bookingDetails.toDate}
                                     onChange={(newValue) => {
-                                        setBookingDetails({ ...bookingDetails, toDate: moment(newValue).toISOString() });
+                                        setBookingDetails({
+                                            ...bookingDetails,
+                                            toDate: moment(newValue).toISOString()
+                                        });
                                     }}
                                     renderInput={(params) => <TextField {...params} />}
                                 />
                             </div>
                         </div>
-                        <LoadingButton
-                            id="button"
-                            loading={carLoading}
-                            loadingIndicator={
-                                <CircularProgress color="primary" size={40} style={{ color: '#fff' }} />
-                            }
-                            onClick={handleSubmit}
-                        >
-                            Find Cars
-                        </LoadingButton>
+                        <div className='width-control-ride'> 
+                            <LoadingButton
+                                id="button"
+                                loading={carLoading}
+                                loadingIndicator={
+                                    <CircularProgress color="primary" size={40} style={{ color: '#fff' }} />
+                                }
+                                onClick={handleSubmit}
+                            >
+                                Find Cars
+                            </LoadingButton>
+                        </div>
 
                         <div>
                             {filteredCars.length > 0 && <h1 style={{ marginLeft: '20%' }}>Cars</h1>}

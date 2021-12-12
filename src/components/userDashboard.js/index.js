@@ -1,45 +1,43 @@
 import React, { useEffect, useState } from 'react';
-import { Redirect } from 'react-router';
-import { getUserDetails, postUserDocs } from '../../apiCalls/auth';
-import { useGlobalContext } from '../../context';
+import css from './UserDashboard.module.scss';
 import Footer from '../footer/Footer';
 import Navbar from '../nav/Navbar';
 
-export default function UserDashBoard(props) {
-    const { user, setUser } = useGlobalContext();
-    const [userDl, setUserDl] = useState({});
-    const [showUploadDl, setshowUploadDl] = useState(true);
+import Dlupload from '../Dlupload';
+import BankFrom from '../BankForm';
+import YourRides from '../YourRides';
+import YourCars from '../YourCars';
+import RentedCars from '../RentedCars';
+import { getRentedCars } from '../../apiCalls/auth';
 
-    useEffect(() => {
-        getUserDetails().then((response) => {
-            if (response?.user?.[0]?.['userproxy__is_valid_rider']) {
-                setshowUploadDl(false);
-                const user = JSON.parse(localStorage.getItem('user'));
-                localStorage.setItem('user', JSON.stringify({ ...user, is_valid_rider: true }));
-            }
-        });
-    }, []);
-    function onFileUpload(e) {
-        console.log(e.target.files);
-        setUserDl(e.target.files[0]);
-    }
-    function handleUpload(e) {
-        e.preventDefault();
-        postUserDocs(userDl).then((response) => {
-            console.log(response);
-        });
+export default function UserDashBoard(props) {
+    const [expanded, setExpanded] = useState(false);
+    const [rentedCars, setRentedCars] = useState({ car_data: [], active_orders: [], non_active_orders: [] });
+    useEffect(()=>{
+        if(expanded == 'RENTED_CARS' || expanded == 'YourCars'){
+            fetchRentedCars()
+        }
+    },[expanded])
+
+    const accordionChange = (panel) => (event, isExpanded) => {
+        setExpanded(isExpanded ? panel : false);
+    };
+
+    function fetchRentedCars() {
+        const userId = JSON.parse(localStorage.getItem('user')).userid;
+        getRentedCars(userId).then((res) => setRentedCars(res));
     }
 
     return (
         <>
-            <Navbar {...props}></Navbar>
-            {showUploadDl && (
-                <div>
-                    <p> upload your driving licence to continue</p>
-                    <input type="file" name="dL" onChange={onFileUpload}></input>
-                    {userDl && <button onClick={handleUpload}>upload</button>}
-                </div>
-            )}
+            <Navbar {...props} />
+            <main className={css.dashboard}>
+                <Dlupload AccordionChange={accordionChange} expanded={expanded} />
+                <BankFrom AccordionChange={accordionChange} expanded={expanded} />
+                <YourRides AccordionChange={accordionChange} expanded={expanded} />
+                <RentedCars AccordionChange={accordionChange} expanded={expanded} cars={rentedCars} />
+                <YourCars AccordionChange={accordionChange} expanded={expanded} cars={rentedCars.car_data ?? []} />
+            </main>
             <Footer {...props} />
         </>
     );

@@ -1,0 +1,22 @@
+.carList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-content: space-between;
+}
+
+.carModule{
+    border-radius: 10px/10px;
+    margin:10px 20px;
+    box-shadow: 0 0 10px #c33764; 
+    width: 25%;
+    
+    *{
+        padding-left: 20px
+    };
+}
+
+.widthControl{
+    width: 80%;
+    padding-bottom: 20px;
+}

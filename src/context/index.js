@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { login } from '../apiCalls/auth';
 const LoginContext = React.createContext();
 
 function LoginProvider ({children}) {

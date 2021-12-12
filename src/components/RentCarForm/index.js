@@ -165,7 +165,7 @@ export default function CarRentForm(props) {
                         {fileName.carRc}
                         <input type="file" id="car-rc" name="rc" onChange={handlePhoto} />
                     </div>
-                    <div>
+                    <div className='width-control-ride'>
                         <LoadingButton
                             loading={loading}
                             id="button"
