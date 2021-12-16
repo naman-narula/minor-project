@@ -26,7 +26,6 @@ $lightGradient2: linear-gradient(
 
 .ride-page-top {
     padding-top: 10vh;
-    height: 60vh;
     display: grid;
     grid-template-columns: 2fr 1fr;
     justify-items: center;
@@ -38,6 +37,8 @@ $lightGradient2: linear-gradient(
         font-family: 'Lato', sans-serif;
         align-self: center;
         color: $perfectGrey;
+        text-align: center;
+        margin-left:40%;
         h1 {
             font-size: 4rem;
             font-weight: 400;
@@ -69,9 +70,8 @@ $lightGradient2: linear-gradient(
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
+    flex-wrap: wrap;
     justify-content: space-around;
-    height: 50vh;
     // padding-top: 10vh;
     // .ride-page-cities {
     //     display: grid;
@@ -134,4 +134,15 @@ $lightGradient2: linear-gradient(
 .width-control-ride{
     width: 20vw;
     margin: auto;
+    margin-top: 4rem;
+}
+
+@media screen and (max-width:600px) {
+    .circle{
+        display: none;
+    }
+    .width-control-ride{
+        width: 60%;
+    }
+    
 }

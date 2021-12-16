@@ -83,8 +83,8 @@ function Login(props) {
                         </button>
                     </form>
                 </div>
-                <div className="image">
-                    <img src={SignIn} alt="" className="image" />
+                <div>
+                    <img src={SignIn} alt=""  className='login-image'/>
                 </div>
             </div>
         );

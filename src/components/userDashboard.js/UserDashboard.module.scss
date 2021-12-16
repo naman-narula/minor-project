@@ -1,8 +1,15 @@
-.dashboard{
+.dashboard {
     padding: 10rem;
 }
 
 .widthControl {
     width: 20vw;
     margin: auto;
+}
+
+@media screen and (max-width: 600px) {
+    .dashboard {
+        padding: 2rem;
+        padding-top: 5rem;
+    }
 }

@@ -20,6 +20,7 @@ class Signup extends Component {
             name: '',
             email: '',
             password: '',
+            mobile_number:'',
             error: '',
             active: false,
             redirect: false,
@@ -35,17 +36,18 @@ class Signup extends Component {
     
     handleSubmit = (event) => {
         this.setState({ error: '', active: false, redirect: false, loading: true })
-        const { name, email, password } = this.state
-        console.log(name, email, password)
+        const { name, email, password, mobile_number } = this.state
+        console.log(name, email, password,mobile_number)
 
-        if (!name || !email || !password) {
+        if (!name || !email || !password || !mobile_number) {
             this.setState({ error: 'Fill in the details', active: true })
         }
         else {
             const formData = new FormData()
-            formData.append('username', email)
-            formData.append('name', name)
+            formData.append('email', email)
+            formData.append('username', name)
             formData.append('password', password)
+            formData.append('mobile_number',mobile_number)
     
             signup(formData)
             .then(user => {
@@ -56,7 +58,7 @@ class Signup extends Component {
                 else {
                     this.setState({ redirect: true })
                     setTimeout(() => {
-                        this.props.history.push('/')
+                        this.props.history.push('/login')
                     }, 5000)
                 }
             })
@@ -113,8 +115,19 @@ class Signup extends Component {
                             onChange={this.handleChange}
                             onClick={() => this.setState({ active: false })}
                         />
+                        <label className='auth-labels' htmlFor="usernumber">
+                            Enter Mobile Number
+                        </label>
+                        <input
+                            className='auth-inputs'
+                            type="number"
+                            id='userpassword'
+                            name="mobile_number"
+                            onChange={this.handleChange}
+                            onClick={() => this.setState({ active: false })}
+                        />
                         { this.state.loading && 
-                        <div className='loader'>
+                        <div className='loader-signup'>
                             <PropagateLoader
                                 css={override}
                                 size={100}

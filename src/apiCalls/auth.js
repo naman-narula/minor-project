@@ -292,3 +292,11 @@ export const endRide = (userId, requestBody) => {
 export const getRentedCars = (userId) => {
     return fetch(`${API}/user/${userId}/car-data`, { credentials: 'include' }).then((res) => res.json());
 };
+
+export const Report = (userId, requestBody) => {
+    return fetch(`${API}/user/${userId}/report-now`, {
+        credentials: 'include',
+        method: 'POST',
+        body: requestBody
+    }).then((res) => res.json());
+};

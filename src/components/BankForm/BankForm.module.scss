@@ -1,0 +1,17 @@
+.loadingButton {
+    width: 40%;
+    margin: auto;
+}
+.accordion{
+    width: 40%;
+    margin: auto;
+}
+
+@media screen and (max-width: 600px) {
+    .loadingButton {
+        width: 50%;
+    }
+    .accordion{
+        width: 100%;
+    }
+}

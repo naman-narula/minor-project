@@ -24,7 +24,6 @@ $lightGradient2: linear-gradient(
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    height: 70vh;
     .rent-header {
         font-family: 'Lato', sans-serif;
         font-size: 1.5em;
@@ -37,7 +36,6 @@ $lightGradient2: linear-gradient(
         margin-left: 15vw;
         h1 {
             font-size: 3em;
-            background-color: rgba(255, 255, 255, 0.3);
             padding: 5px;
         }
         h3 {
@@ -56,8 +54,10 @@ $lightGradient2: linear-gradient(
     padding: 10vh 0;
     .features {
         display: flex;
-        width: 60%;
+        margin: 0 5%;
         margin-top: 3vh;
+        flex-wrap: wrap;
+        gap: 1rem;
 
         .feature {
             display: flex;
@@ -68,6 +68,8 @@ $lightGradient2: linear-gradient(
             background-color: $w;
             padding: 20px 15px;
             margin: 0 10px;
+            flex-basis: 20%;
+            flex-grow: 0;
         }
     }
 }
@@ -185,7 +187,7 @@ $lightGradient2: linear-gradient(
         &:focus {
             outline: none;
         }
-        &:disabled{
+        &:disabled {
             background-color: gray;
             border: gray;
         }
@@ -213,6 +215,30 @@ $lightGradient2: linear-gradient(
 
         &:hover {
             opacity: 0.9;
+        }
+    }
+}
+
+.rent-car-container {
+    padding-top: 4rem;
+}
+
+@media screen and (max-width: 600px) {
+    .below-rent-img {
+        .features {
+            .feature {
+                flex-grow: 1;
+            }
+        }
+    }
+    .car-form-container {
+        .car-page-form {
+            grid-template-columns: 1fr;
+        }
+        .car-submit{
+            width: 50%;
+            margin-top: 2rem;
+            margin-left: 20%
         }
     }
 }

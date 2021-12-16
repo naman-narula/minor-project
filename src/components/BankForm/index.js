@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import css from './BankForm.module.scss'
 
 import Accordion from '@mui/material/Accordion';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -52,7 +53,8 @@ export default function BankFrom(props) {
                     Share your Bank Details for Smooth Payment Transfers
                 </p>
             </AccordionSummary>
-            <AccordionDetails style={{ width: '40%', margin: 'auto' }}>
+            <AccordionDetails>
+                <div className={css.accordion}>
                 <div className="form-group">
                     <label>Enter Your Account Number</label>
                     <input
@@ -83,7 +85,7 @@ export default function BankFrom(props) {
                         onChange={handleChange}
                     />
                 </div>
-                <div style={{ width: '40%', margin: 'auto' }}>
+                <div className={css.loadingButton}>
                     <LoadingButton
                         loading={loading}
                         type="submit"
@@ -96,6 +98,7 @@ export default function BankFrom(props) {
                     >
                         Submit
                     </LoadingButton>
+                </div>
                 </div>
                 <Snackbar
                     anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}

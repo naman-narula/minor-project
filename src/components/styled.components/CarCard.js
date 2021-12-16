@@ -28,9 +28,7 @@ export default function CarCard(props) {
 
     return (
         <Card>
-            {props.car.car__photo && (
-                <img src={props.car.car__photo} height={300} alt="car" />
-            )}
+            {props.car.car__photo && <img src={props.car.car__photo} height={300} alt="car" />}
             <CardContent>
                 {rideStatus == props.endStatus && <Chip label="Active" color="success" />}
                 <h1>
@@ -50,7 +48,12 @@ export default function CarCard(props) {
                 )}
             </CardContent>
             <CardActions>
-                <Button size="small" color="error" variant="contained">
+                <Button
+                    size="small"
+                    color="error"
+                    variant="contained"
+                    onClick={() => props.dialogOpen(props.car.id)}
+                >
                     Report
                 </Button>
                 {rideStatus == props.endStatus && (

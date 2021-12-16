@@ -1,7 +1,7 @@
 .carList {
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
+    justify-content: center;
     align-content: space-between;
 }
 
@@ -19,4 +19,10 @@
 .widthControl{
     width: 80%;
     padding-bottom: 20px;
+}
+
+@media screen and (max-width:600px) {
+    .carModule{
+        width: 100%;
+    }
 }

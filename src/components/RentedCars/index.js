@@ -17,10 +17,10 @@ export default function RentedCars(props) {
             </AccordionSummary>
             <AccordionDetails>
                 {props?.cars?.active_orders?.map((car, index) => {
-                    return <CarCard key={index} car={car} endStatus="RSRE" use='userRides' />;
+                    return <CarCard key={index} car={car} endStatus="RSRE" use='userRides' dialogOpen={props.dialogOpen} />;
                 })}
                 {props?.car?.non_active_orders?.map((car,index)=>{
-                    return <CarCard key={index} car={car} endStatus="RSRE" use='userRides'/>
+                    return <CarCard key={index} car={car} endStatus="RSRE" use='userRides' dialogOpen={props.dialogOpen}/>
                 })}
             </AccordionDetails>
         </Accordion>

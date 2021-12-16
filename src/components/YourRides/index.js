@@ -30,7 +30,7 @@ export default function YourRides(props) {
                 {userRides.map((rides,index) => {
                     return (
                         <div key={index} style={{ marginBottom: '20px' }}>
-                            <CarCard car={rides} endStatus="BKD" use="userRides" />
+                            <CarCard car={rides} endStatus="BKD" use="userRides"  dialogOpen={props.dialogOpen} />
                         </div>
                     );
                 })}

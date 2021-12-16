@@ -27,19 +27,19 @@ $perfectGrey: rgb(243, 243, 241);
     }
     .form-container {
         display: flex;
-        height: 50vh;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        padding-top: 5rem;
         h1 {
             font-family: 'Lato', sans-serif;
             font-weight: 400;
             margin-top: 5vh;
+            text-align: center;
             color: grey;
         }
     
         .form-control {
-            margin-bottom: -15vh;
             display: flex;
             flex-direction: column;
             // align-items: center;
@@ -50,7 +50,6 @@ $perfectGrey: rgb(243, 243, 241);
                 font-weight: 400;
             }
             .auth-inputs {
-                width: 40vw;
                 padding: 20px;
                 margin: 10px 0;
                 border: $darkBlue solid 1px;
@@ -76,11 +75,32 @@ $perfectGrey: rgb(243, 243, 241);
     }
 }
 
+.loader-signup{
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    z-index: 5;
+}
+
+.login-image{
+    height: auto;
+    width:50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
 @keyframes dropDown {
     0% {
         top: 0;
     }
     100% {
         top: 9vh;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .form-control {
+        width: 75%;
     }
 }
