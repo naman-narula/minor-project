@@ -1,12 +1,20 @@
-$darkBlue: rgb(40,44,52);
-$blue: rgb(97,218,251);
+$darkBlue: rgb(40, 44, 52);
+$blue: rgb(97, 218, 251);
 $w: rgb(255, 255, 255);
-$purpleOne: #C33764;  /* fallback for old browsers */
-$purpleGradient: -webkit-linear-gradient(to right, #1D2671, #C33764);  /* Chrome 10-25, Safari 5.1-6 */
-$purpleGradient2: linear-gradient(to right, #1D2671, #C33764); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-$lightOrange: #FFAFBD;  /* fallback for old browsers */
-$lightGradient: -webkit-linear-gradient(to right, #ffc3a0, #FFAFBD);  /* Chrome 10-25, Safari 5.1-6 */
-$lightGradient2: linear-gradient(to right, #ffc3a0, #FFAFBD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+$purpleOne: #c33764; /* fallback for old browsers */
+$purpleGradient: -webkit-linear-gradient(to right, #1d2671, #c33764); /* Chrome 10-25, Safari 5.1-6 */
+$purpleGradient2: linear-gradient(
+    to right,
+    #1d2671,
+    #c33764
+); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+$lightOrange: #ffafbd; /* fallback for old browsers */
+$lightGradient: -webkit-linear-gradient(to right, #ffc3a0, #ffafbd); /* Chrome 10-25, Safari 5.1-6 */
+$lightGradient2: linear-gradient(
+    to right,
+    #ffc3a0,
+    #ffafbd
+); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 $perfectGrey: rgb(243, 243, 241);
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap');
@@ -38,12 +46,13 @@ $perfectGrey: rgb(243, 243, 241);
             text-align: center;
             color: grey;
         }
-    
+
         .form-control {
             display: flex;
             flex-direction: column;
             // align-items: center;
             z-index: 1;
+            width: 60%;
 
             .auth-labels {
                 color: $darkBlue;
@@ -75,16 +84,16 @@ $perfectGrey: rgb(243, 243, 241);
     }
 }
 
-.loader-signup{
+.loader-signup {
     width: 100%;
     height: 100%;
     margin: auto;
     z-index: 5;
 }
 
-.login-image{
+.login-image {
     height: auto;
-    width:50%;
+    width: 50%;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -99,7 +108,7 @@ $perfectGrey: rgb(243, 243, 241);
     }
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width: 600px) {
     .form-control {
         width: 75%;
     }

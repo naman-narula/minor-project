@@ -30,7 +30,7 @@ function Login(props) {
             .then((res) => {
                 console.log(res);
                 if (res.code === 200) {
-                    setUser({loggedIn:true,userId:res.response.userid});
+                    setUser({ loggedIn: true, userId: res.response.userid });
                     setFormInput({ ...formInput, redirect: true });
                 } else {
                     setFormInput({ ...formInput, error: res.error, active: true });
@@ -42,7 +42,12 @@ function Login(props) {
         event.preventDefault();
     }
     if (formInput.redirect) {
-        return <Redirect to="/dashboard" />;
+        return (
+            <>
+                <Success message="Login successful" />
+                <Redirect to="/dashboard" />
+            </>
+        );
     } else {
         return (
             <div className="login-container">
@@ -84,7 +89,7 @@ function Login(props) {
                     </form>
                 </div>
                 <div>
-                    <img src={SignIn} alt=""  className='login-image'/>
+                    <img src={SignIn} alt="" className="login-image" />
                 </div>
             </div>
         );
