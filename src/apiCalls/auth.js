@@ -1,4 +1,4 @@
-const API = 'http://localhost:8000';
+const API = 'http://localhost:8000/api';
 // const API = 'https://carhub-backend.herokuapp.com/api'
 
 // user route calls
@@ -92,7 +92,7 @@ export const isAuthenticated = () => {
 
 // city route calls
 export const getCities = () => {
-    return fetch(`${API}`, {
+    return fetch(`${API}/home`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
