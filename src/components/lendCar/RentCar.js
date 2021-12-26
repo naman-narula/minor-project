@@ -265,6 +265,7 @@ function RentCar(props) {
                     >
                         Check Price
                     </LoadingButton>
+                    <div className='break-rent-car'></div>
                     {shouldShowPriceApproval && (
                         <>
                             <PriceApproval

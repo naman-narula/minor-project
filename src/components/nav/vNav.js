@@ -11,8 +11,8 @@ function Nav(props) {
   const [state, setState] = useState({
     top: false
   })
-  const [name, setName] = useState('')
   const [redirect, setRedirect] = useState(false)
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
 
   const doRedirect = () => {
     if (redirect) {
@@ -69,7 +69,16 @@ function Nav(props) {
                 Ride Now
                 </Link>
 
-                { !isAuthenticated() &&
+                { user?.is_active &&
+                <Link className='vertical-link' to='/dashboard'
+                onClick={toggleDrawer(anchor, false)}
+                onKeyDown={toggleDrawer(anchor, false)}
+                >
+                  Dashboard
+                </Link>
+                }
+
+                { !user?.is_active &&
                   <Link className='vertical-link' to='/login'
                   onClick={toggleDrawer(anchor, false)}
                   onKeyDown={toggleDrawer(anchor, false)}
@@ -77,7 +86,7 @@ function Nav(props) {
                   Login
                   </Link>
                 }
-                { !isAuthenticated() &&
+                { !user?.is_active &&
                   <Link className='vertical-link' to='/signup'
                   onClick={toggleDrawer(anchor, false)}
                   onKeyDown={toggleDrawer(anchor, false)}
@@ -86,7 +95,7 @@ function Nav(props) {
                   </Link>
                 }
 
-                { isAuthenticated() &&
+                { user?.is_active &&
                 <Link className='vertical-link' to='/'
                 onClick={() => {
                   toggleDrawer(anchor, false)
@@ -98,14 +107,6 @@ function Nav(props) {
                 onKeyDown={toggleDrawer(anchor, false)}
                 >
                   Logout
-                </Link>
-                }
-                { isAuthenticated() &&
-                <Link className='vertical-link' to='/dashboard'
-                onClick={toggleDrawer(anchor, false)}
-                onKeyDown={toggleDrawer(anchor, false)}
-                >
-                  {name}
                 </Link>
                 }
             </div>

@@ -33,6 +33,7 @@ $perfectGrey: rgb(243, 243, 241);
     .home-header {
         // font-family: 'B612', sans-serif;
         font-family: 'Lato', sans-serif;
+        margin-top: 10%;
         font-size: 1.5em;
         color: $w;
         height: inherit;
@@ -82,6 +83,7 @@ $perfectGrey: rgb(243, 243, 241);
 
 .card-list {
     display: flex;
+    margin-top: 20px;
     margin-bottom: 10vh;
     flex-wrap: wrap;
     justify-content: center;

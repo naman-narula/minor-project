@@ -184,8 +184,8 @@ export const getCar = (carId) => {
 export const rideCar = (bookingDetails) => {
     let endpoint = `${API}/ridecar/${bookingDetails.city.id}`;
     console.log(endpoint);
-    endpoint = new URL(endpoint);
-    endpoint.search = new URLSearchParams({
+
+    endpoint = endpoint+'?' + new URLSearchParams({
         fromDate: bookingDetails.fromDate,
         toDate: bookingDetails.toDate
     }).toString();

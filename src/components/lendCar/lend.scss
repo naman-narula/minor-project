@@ -223,6 +223,11 @@ $lightGradient2: linear-gradient(
     padding-top: 4rem;
 }
 
+.break-rent-car{
+    height: 40px;
+    content: '';
+}
+
 @media screen and (max-width: 600px) {
     .below-rent-img {
         .features {

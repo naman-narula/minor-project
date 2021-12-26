@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../nav/Navbar';
-import Autocomplete from '@mui/lab/Autocomplete';
+import Autocomplete from '@mui/material/Autocomplete';
 import Tile from '../styled.components/CarTile';
 import { TextField } from '@material-ui/core';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -135,11 +135,13 @@ function Ride(props) {
                                     inputFormat="DD/MM/YYYY"
                                     value={bookingDetails.toDate}
                                     onChange={(newValue) => {
+                                        console.log(newValue)
                                         setBookingDetails({
                                             ...bookingDetails,
                                             toDate: moment(newValue).toISOString()
                                         });
                                     }}
+                                    minDate={moment(bookingDetails.fromDate)}
                                     renderInput={(params) => <TextField {...params} />}
                                 />
                             </div>
