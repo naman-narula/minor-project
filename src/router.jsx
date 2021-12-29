@@ -9,10 +9,11 @@ import HtmlViewer from './components/HtmlViewer'
 import UserDashBoard from './components/userDashboard.js'
 import PrivateRoute from './apiCalls/PrivateRoute'
 import CarRentForm from './components/RentCarForm'
+import Footer from './components/footer/Footer'
 
-function router() {
+function router(props) {
     return (
-        <div>
+        <div style={{position:'relative'}}>
             <BrowserRouter>
                 <Switch>
                     <Route path='/'
@@ -42,6 +43,7 @@ function router() {
                     component={CarRentForm}/>
                 </Switch>
             </BrowserRouter>
+            <Footer {...props}/>
         </div>
     )
 }

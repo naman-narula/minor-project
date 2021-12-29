@@ -294,9 +294,6 @@ function RentCar(props) {
                     >
                         <Alert severity="info">{alert.message}</Alert>
                     </Snackbar>
-                    <div>
-                        <Footer {...props} />
-                    </div>
                     {redirect && (
                         <Redirect
                             to={{

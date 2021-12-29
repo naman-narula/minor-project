@@ -138,7 +138,6 @@ const Home = (props) => {
                             />
                         </div>
                     </div>
-                    <Footer {...props} />
                 </div>
             )}
         </div>
@@ -153,6 +152,7 @@ class CityList extends React.Component {
             speed: 500,
             slidesToShow: 3,
             slidesToScroll: 1,
+            initialSlide:0,
             responsive: [
                 {
                     breakpoint: 600,

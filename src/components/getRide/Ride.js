@@ -158,7 +158,7 @@ function Ride(props) {
                                 Find Cars
                             </LoadingButton>
                         </div>
-
+                        <hr/>
                         <div>
                             {filteredCars.length > 0 && <h1 style={{ marginLeft: '20%' }}>Cars</h1>}
 

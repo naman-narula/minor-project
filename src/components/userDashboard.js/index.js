@@ -98,7 +98,6 @@ export default function UserDashBoard(props) {
                     </DialogActions>
                 </Dialog>
             </main>
-            <Footer {...props} />
         </>
     );
 }
