@@ -43,7 +43,6 @@ function router(props) {
                     component={CarRentForm}/>
                 </Switch>
             </BrowserRouter>
-            <Footer {...props}/>
         </div>
     )
 }

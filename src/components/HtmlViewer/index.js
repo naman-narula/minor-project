@@ -20,6 +20,8 @@ const App = (props) => {
 
     // Lets create a form by DOM manipulation
     // display messages as soon as payment starts
+
+    // document.querySelector('.footer-container').style.display='none'
     let heading1 = document.createElement("h1");
     heading1.innerText = "Redirecting you to the paytm....";
     let heading2 = document.createElement("h1");

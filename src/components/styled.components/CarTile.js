@@ -44,31 +44,33 @@ function CarTile(props) {
     return (
         <div className="tile-container">
             <Grid container>
-                <Grid item sm={12} md={7} className="car-text">
-                    <h3 className="car-name">
-                       <b> {' '}
-                        {props.car.brand[0].toUpperCase() + props.car.brand.substring(1)}{' '}
-                        {props.car.modelName}{' '}
-                        </b>
-                    </h3>
-                    <h3 className="car-category"> {props.car?.category?.name ?? ''} </h3>
-                    <h3 className="car-year"> {props.car.year} </h3>
-                    <h3 className="discount">Special Price</h3>
-                    <h3 className="car-price">₹ {props.car.details__price_by_model}</h3>
-                </Grid>
                 <Grid item sm={12} md={5} className="car-thumbnail">
                     <img src={props.car.photo} alt="thumbnail" className="car-tile" />
-                    <div style={{width:'200px',marginBottom:'20px'}}>
-                        <Link
-                            to={{
-                                pathname: '/payment',
-                                state: { booking: props.bookingDetails, car: props.car }
-                            }}
-                        >
-                            <button id="button" className="date-btn">
-                                Book your ride
-                            </button>
-                        </Link>
+                </Grid>
+                <Grid item sm={12} md={7} className="car-text">
+                    <div style={{ margin: '40px 50px', marginLeft: '50px' }}>
+                        <h1 className="car-name">
+                            {props.car.brand[0].toUpperCase() + props.car.brand.substring(1)}{' '}
+                            {props.car.modelName}
+                        </h1>
+                        <h3 className="car-category"> {props.car?.category?.name ?? ''} </h3>
+                        <h3 className="car-year"> {props.car.year} </h3>
+                        <h3 className="discount">Special Price</h3>
+                        <div className="car-tile-order-button">
+                            <h3 className="car-price">₹ {props.car.details__price_by_model}</h3>
+                            <div style={{ width: '200px', marginBottom: '20px',marginLeft:'auto',marginRight:'40%' }}>
+                                <Link
+                                    to={{
+                                        pathname: '/payment',
+                                        state: { booking: props.bookingDetails, car: props.car }
+                                    }}
+                                >
+                                    <button id="button" className="date-btn">
+                                        Book your ride
+                                    </button>
+                                </Link>
+                            </div>
+                        </div>
                     </div>
                 </Grid>
             </Grid>

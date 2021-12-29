@@ -31,10 +31,10 @@ export default function UserDashBoard(props) {
     const handleClose = (action) => {
         if (action) {
             const formData = new FormData();
-            for(let key in report){
-                formData.append(key,report[key])
+            for (let key in report) {
+                formData.append(key, report[key]);
             }
-            Report(JSON.parse(localStorage.getItem('user')).userid,formData);
+            Report(JSON.parse(localStorage.getItem('user')).userid, formData);
         }
         setOpen(false);
     };
@@ -82,8 +82,8 @@ export default function UserDashBoard(props) {
                             Tell us your concern. Rest be assured we are looking in it
                         </DialogContentText>
                         <textarea
-                        rows={10}
-                        cols={30}
+                            rows={10}
+                            cols={30}
                             className="input-css"
                             name="message"
                             value={report.message}
@@ -98,6 +98,7 @@ export default function UserDashBoard(props) {
                     </DialogActions>
                 </Dialog>
             </main>
+            <Footer {...props} />
         </>
     );
 }

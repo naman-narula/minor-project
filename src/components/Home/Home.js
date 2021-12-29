@@ -41,106 +41,109 @@ const Home = (props) => {
     }, []);
 
     return (
-        <div>
-            <Navbar {...props} />
-            {loading && (
-                <div className="loader">
-                    <BounceLoader css={override} size={100} color={'#FFAFBD'} loading={loading} />
-                </div>
-            )}
-            {!loading && (
-                <div className="home-page">
-                    <div className="home-image">
-                        <div className="home-header">
-                            <h1>Welcome to CarHub</h1>
-                            <h3>
-                                We are the solution to your urge of travelling. Travel with carhub to find the
-                                best of kinds of cars from micro to luxury. Also earn money by using our
-                                rental services for your benefit by lending your own car for rent.
-                            </h3>
-                            <Link to="/getride" className="button-1">
-                                Book a ride!
-                            </Link>
-                        </div>
+        <>
+            <div>
+                <Navbar {...props} />
+                {loading && (
+                    <div className="loader">
+                        <BounceLoader css={override} size={100} color={'#FFAFBD'} loading={loading} />
                     </div>
-                    <div className="card-list">
-                        <Paper elevation={3}>
-                            <LocationCityTwoTone />
-                            <h2>OVER EIGHT CITIES</h2>
-                        </Paper>
-                        <Paper elevation={3}>
-                            <EmojiEventsTwoTone />
-                            <h2>TRUSTED SERVICE</h2>
-                        </Paper>
-                        <Paper elevation={3}>
-                            <AttachMoneyTwoTone />
-                            <h2>NO EXTRA CHARGES</h2>
-                        </Paper>
-                        <Paper elevation={3}>
-                            <EmojiTransportationTwoTone />
-                            <h2>DAMAGE INSURANCE</h2>
-                        </Paper>
-                    </div>
-                    <div className="about-here">
-                        <h1 style={{ fontWeight: '200' }}>
-                            What is <em style={{ color: '#c354ab', fontWeight: '400' }}>CarHub?</em>
-                        </h1>
-                        <h3>
-                            It is an online car rental system that provides a platform to its customers to
-                            travel to their destinations.
-                        </h3>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut maxime repellendus
-                            ipsum minus nulla velit voluptates necessitatibus quisquam animi, delectus
-                            adipisci sint officiis harum, nobis accusantium reprehenderit, unde sapiente
-                            tempora laudantium commodi laborum amet. Fuga beatae culpa odit dignissimos, cum
-                            eligendi hic praesentium quae delectus dolorum possimus dolores ipsam aliquam.
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias quae velit,
-                            tenetur non veritatis at maiores sequi provident. Quis eius ducimus, corporis
-                            laboriosam error maiores, nobis a facilis magnam quas nihil nisi aperiam, ipsam
-                            voluptates? Neque ullam aspernatur nulla dolores aut vel dolor! Aliquid ipsam
-                            obcaecati impedit sapiente? Asperiores, natus.
-                        </p>
-                    </div>
-                    <h1 style={{textAlign:'center'}}>
-                        Your one stop to every destination is{' '}
-                        <span style={{ color: '#c354ab', fontWeight: '400' }}>CarHub</span>
-                    </h1>
-                    <div className="button-section">
-                        <div>
-                            <img className="car-img" src={CarSvg} alt="" />
-                        </div>
-                        <div className="btn-pair">
-                            <button className="home-btns" onClick={() => props.history.push('/getride')}>
-                                Get Ride!
-                            </button>
-                            <button className="home-btns" onClick={() => props.history.push('/rentcar')}>
-                                Rent your car!
-                            </button>
-                        </div>
-                    </div>
-                    <div className="city-section-background">
-                        <div className="city-section">
-                            <h1 id="city-head">Cities we serve!</h1>
-                            <hr
-                                style={{
-                                    width: '40%'
-                                }}
-                            />
-
-                            <div className="cities-list">
-                                <CityList cities={cities} />
+                )}
+                {!loading && (
+                    <div className="home-page">
+                        <div className="home-image">
+                            <div className="home-header">
+                                <h1>Welcome to CarHub</h1>
+                                <h3>
+                                    We are the solution to your urge of travelling. Travel with carhub to find
+                                    the best of kinds of cars from micro to luxury. Also earn money by using
+                                    our rental services for your benefit by lending your own car for rent.
+                                </h3>
+                                <Link to="/getride" className="button-1">
+                                    Book a ride!
+                                </Link>
                             </div>
-                            <hr
-                                style={{
-                                    width: '40%'
-                                }}
-                            />
+                        </div>
+                        <div className="card-list">
+                            <Paper elevation={3}>
+                                <LocationCityTwoTone />
+                                <h2>OVER EIGHT CITIES</h2>
+                            </Paper>
+                            <Paper elevation={3}>
+                                <EmojiEventsTwoTone />
+                                <h2>TRUSTED SERVICE</h2>
+                            </Paper>
+                            <Paper elevation={3}>
+                                <AttachMoneyTwoTone />
+                                <h2>NO EXTRA CHARGES</h2>
+                            </Paper>
+                            <Paper elevation={3}>
+                                <EmojiTransportationTwoTone />
+                                <h2>DAMAGE INSURANCE</h2>
+                            </Paper>
+                        </div>
+                        <div className="about-here">
+                            <h1 style={{ fontWeight: '200' }}>
+                                What is <em style={{ color: '#c354ab', fontWeight: '400' }}>CarHub?</em>
+                            </h1>
+                            <h3>
+                                It is an online car rental system that provides a platform to its customers to
+                                travel to their destinations.
+                            </h3>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut maxime repellendus
+                                ipsum minus nulla velit voluptates necessitatibus quisquam animi, delectus
+                                adipisci sint officiis harum, nobis accusantium reprehenderit, unde sapiente
+                                tempora laudantium commodi laborum amet. Fuga beatae culpa odit dignissimos,
+                                cum eligendi hic praesentium quae delectus dolorum possimus dolores ipsam
+                                aliquam. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias quae
+                                velit, tenetur non veritatis at maiores sequi provident. Quis eius ducimus,
+                                corporis laboriosam error maiores, nobis a facilis magnam quas nihil nisi
+                                aperiam, ipsam voluptates? Neque ullam aspernatur nulla dolores aut vel dolor!
+                                Aliquid ipsam obcaecati impedit sapiente? Asperiores, natus.
+                            </p>
+                        </div>
+                        <h1 style={{ textAlign: 'center' }}>
+                            Your one stop to every destination is{' '}
+                            <span style={{ color: '#c354ab', fontWeight: '400' }}>CarHub</span>
+                        </h1>
+                        <div className="button-section">
+                            <div>
+                                <img className="car-img" src={CarSvg} alt="" />
+                            </div>
+                            <div className="btn-pair">
+                                <button className="home-btns" onClick={() => props.history.push('/getride')}>
+                                    Get Ride!
+                                </button>
+                                <button className="home-btns" onClick={() => props.history.push('/rentcar')}>
+                                    Rent your car!
+                                </button>
+                            </div>
+                        </div>
+                        <div className="city-section-background">
+                            <div className="city-section">
+                                <h1 id="city-head">Cities we serve!</h1>
+                                <hr
+                                    style={{
+                                        width: '40%'
+                                    }}
+                                />
+
+                                <div className="cities-list">
+                                    <CityList cities={cities} />
+                                </div>
+                                <hr
+                                    style={{
+                                        width: '40%'
+                                    }}
+                                />
+                            </div>
                         </div>
                     </div>
-                </div>
-            )}
-        </div>
+                )}
+            </div>
+            <Footer {...props} />
+        </>
     );
 };
 export default Home;
@@ -152,7 +155,7 @@ class CityList extends React.Component {
             speed: 500,
             slidesToShow: 3,
             slidesToScroll: 1,
-            initialSlide:0,
+            initialSlide: 0,
             responsive: [
                 {
                     breakpoint: 600,

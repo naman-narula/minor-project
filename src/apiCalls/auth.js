@@ -1,4 +1,4 @@
-const API = '/api';
+const API = 'http://localhost:8000/api';
 // const API = 'https://carhub-backend.herokuapp.com/api'
 
 // user route calls
