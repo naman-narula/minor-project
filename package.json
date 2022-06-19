@@ -2,7 +2,6 @@
   "name": "carhub-frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://ec2-3-109-216-167.ap-south-1.compute.amazonaws.com:8000",
   "dependencies": {
     "@emotion/core": "^10.3.0",
     "@emotion/react": "^11.7.0",
@@ -27,6 +26,7 @@
     "react-scripts": "3.4.1",
     "react-slick": "^0.26.1",
     "react-spinners": "^0.8.3",
+    "serve": "^13.0.2",
     "slick-carousel": "^1.8.1"
   },
   "scripts": {
